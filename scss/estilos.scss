@@ -1,0 +1,269 @@
+@import "resource";
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  padding: 20px;
+}
+
+textarea,
+input,
+button {
+  font-family: "Nunito Sans", sans-serif;
+}
+.main {
+  background-color: map-get($colores, greenColor);
+  border-radius: 8px;
+}
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__link {
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 16px;
+    color: map-get($colores, textColor);
+    cursor: pointer;
+    transition: color 0.5s 0s ease;
+
+    &:hover {
+      color: map-get($colores, blackColor);
+    }
+  }
+
+  &__link--join {
+    padding: 12px 20px;
+    border-radius: 8px;
+    background-color: map-get($colores, purpleColor);
+    color: map-get($colores, whiteColor);
+    transition: opacity 0.5s 0s ease;
+
+    &:hover {
+      opacity: 0.7;
+      color: map-get($colores, whiteColor);
+    }
+  }
+
+  &__photo {
+    cursor: pointer;
+  }
+
+  &__menuToggle {
+    display: none;
+  }
+
+  &__toggle{
+    color:map-get($colores,blackColor );
+    transition:color 0.5s 0s ease;
+    &:hover{
+        color:map-get($colores,purpleColor );
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+
+    &__menuToggle {
+      display: block;
+    }
+
+    &__toggle{
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    &__menu {
+      background-color: map-get($colores, whiteColor);
+      position: absolute;
+      top: 92%;
+      left: 0;
+      flex-direction: column;
+      width: 100%;
+      padding:30px 0 40px;
+      display:none;
+      border-radius: 8px;
+      box-shadow: 0 8px 8px rgba(0, 0, 0, 0.111);
+      &.active{
+        display:flex;
+      }
+    }
+  }
+}
+
+.home {
+  padding: 50px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "article picture";
+  align-items: center;
+  gap: 30px;
+
+  &__picture {
+    grid-area: picture;
+  }
+
+  &__article {
+    grid-area: article;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__photo {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+  }
+
+  &__span {
+    background-color: map-get($colores, purpleColor);
+    color: map-get($colores, whiteColor);
+    padding: 12px 18px;
+    border-radius: 32px;
+    display: inline-block;
+    font-size: 16px;
+    width: 83%;
+
+    &--link {
+      color: map-get($colores, whiteColor);
+      cursor: pointer;
+      padding: 2px 0;
+      font-weight: bold;
+    }
+  }
+  &__firstheading {
+    font-size: 42px;
+    color: map-get($colores, textColor);
+  }
+
+  &__paragraph {
+    color: map-get($colores, purpleColor);
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    &--email {
+      width: 48%;
+    }
+    &--button {
+      width: 48%;
+    }
+    &--input {
+      width: 100%;
+      height: 48px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid map-get($colores, grayColor);
+
+      &:focus{
+          outline: 1px solid map-get($colores, purpleColor);
+      }
+    }
+    &--btn {
+      width: 60%;
+      height: 48px;
+      border-radius: 8px;
+      border: none;
+      text-transform: capitalize;
+      font-size: 16px;
+      background-color: map-get($colores, purpleColor);
+      color: map-get($colores, whiteColor);
+      transition: opacity 0.5s 0s ease;
+
+      &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
+    }
+  }
+  @media screen and (max-width: 900px) {
+    grid-template-areas: "article article";
+    text-align: center;
+    &__article {
+      grid-area: article;
+    }
+    &__picture {
+      grid-area: picture;
+      display: none;
+    }
+
+    &__article {
+      grid-area: article;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &__span {
+      width: 100%;
+    }
+
+    &__form {
+      justify-content: space-between;
+      &--email {
+        width: 68%;
+      }
+      &--button {
+        width: 28%;
+      }
+      &--btn {
+        width: 100%;
+      }
+    }
+  }
+  @media screen and (max-width:600px){
+    &__form {
+    flex-direction: column;
+
+    &--email {
+      width: 100%;
+    }
+    &--button {
+      width: 100%;
+    }    
+  }
+  &__span {    
+    font-size: 14px; 
+    padding: 12px 14px;
+
+  }
+  &__firstheading {
+    font-size: 32px;
+    color: map-get($colores, textColor);
+  }
+  }
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px 0;
+
+  &__socialnetwork {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  &__photo {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+  }
+}
